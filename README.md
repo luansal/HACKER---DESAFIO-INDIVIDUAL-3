@@ -7,13 +7,13 @@
 CREATE SCHEMA `projeto` ;
 
 CREATE TABLE `projeto`.`produtos` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `descriçao` VARCHAR(45) NOT NULL,
-  `preço` DECIMAL(10) NOT NULL,
-  `disponibilidade` VARCHAR(4) NOT NULL,
-  `destaque` VARCHAR(4) NOT NULL,
-  `id_departamento` INT NOT NULL,
-  PRIMARY KEY (`id`));
+  	`id` INT NOT NULL AUTO_INCREMENT,
+ 	 `descriçao` VARCHAR(45) NOT NULL,
+ 	 `preço` DECIMAL(10) NOT NULL,
+ 	 `disponibilidade` VARCHAR(4) NOT NULL,
+ 	 `destaque` VARCHAR(4) NOT NULL,
+ 	 `id_departamento` INT NOT NULL,
+PRIMARY KEY (`id`));
 
 	ALTER TABLE `projeto`.`produtos` 
 	DROP PRIMARY KEY,
@@ -23,25 +23,25 @@ CREATE TABLE `projeto`.`produtos` (
 \\ criando a table DEPARTAMENTO com foreing key em PRODUTOS
 
 CREATE TABLE `projeto`.`departamento` (
-  `id_departamento` INT NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  INDEX `departamento_idx` (`id_departamento` ASC) VISIBLE,
-  CONSTRAINT `departamento`
-    FOREIGN KEY (`id_departamento`)
-    REFERENCES `projeto`.`produtos` (`id_departamento`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  	`id_departamento` INT NOT NULL,
+  	`nome` VARCHAR(45) NOT NULL,
+  	  INDEX `departamento_idx` (`id_departamento` ASC) VISIBLE,
+  	  CONSTRAINT `departamento`
+  	  FOREIGN KEY (`id_departamento`)
+  	  REFERENCES `projeto`.`produtos` (`id_departamento`)
+  	  ON DELETE NO ACTION
+  	  ON UPDATE NO ACTION);
 
 
 \\ criando a table CLIENTES 
 
-CREATE TABLE `projeto`.`clientes` (
-  `nome` VARCHAR(30) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `whatsapp` VARCHAR(15) NOT NULL,
-  `senha` VARCHAR(20) NOT NULL,
-  `clientescol1` VARCHAR(45) NULL,
-  PRIMARY KEY (`nome`));
+ CREATE TABLE `projeto`.`clientes` (
+  	`nome` VARCHAR(30) NOT NULL,
+  	`email` VARCHAR(45) NOT NULL,
+  	`whatsapp` VARCHAR(15) NOT NULL,
+  	`senha` VARCHAR(20) NOT NULL,
+  	`clientescol1` VARCHAR(45) NULL,
+ PRIMARY KEY (`nome`));
 
 	ALTER TABLE `projeto`.`clientes` 
 	ADD COLUMN `clientescol` VARCHAR(45) NULL AFTER `id`,
